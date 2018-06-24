@@ -1,44 +1,59 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import {
   BrowserRouter as Router,
   Route,
   Redirect,
   Switch,
-  Link,
   NavLink
 } from 'react-router-dom';
-import AppHeader from './components/AppHeader';
-import { Tabs, Tab } from '@material-ui/core';
 import Recommend from './components/Recommend';
 import Ranking from './components/Ranking';
 import Search from './components/Search';
 
+import './common/css/normalize.css';
+import './common/css/app.css';
+
 class App extends Component {
   render () {
-    const recommendLink = <NavLink to="/recommend">Recommend</NavLink>;
-    const rankingLink = <NavLink to="/ranking">Ranking</NavLink>;
-    const searchLink = <NavLink to="/search">Search</NavLink>;
-
     return (
       <Router>
-        <div>
-          <AppHeader>
-            <Tabs value="0" centered>
-              <Tab label={recommendLink} />
-              <Tab label={rankingLink} />
-              <Tab label={searchLink} />
-            </Tabs>
-          </AppHeader>
+        <div className="page">
+          <div className="page__hd">
+            <h1 className="page__title">Light Music</h1>
+          </div>
 
+          <div className="flex flex_center nav">
+            <NavLink
+              to="/recommend"
+              className="nav__item"
+              activeClassName="nav__item_active"
+            >推荐
+            </NavLink>
 
-          <Switch>
-            <Route path="/recommend" component={Recommend} />
-            <Redirect from="/" to="/recommend" />
+            <NavLink
+              to="/ranking"
+              className="nav__item"
+              activeClassName="nav__item_active"
+            >排行
+            </NavLink>
+
+            <NavLink
+              to="/search"
+              className="nav__item"
+              activeClassName="nav__item_active"
+            >搜索
+            </NavLink>
+          </div>
+
+          <div className="page__bd">
+            <Switch>
+              <Route path="/recommend" component={Recommend} />
+              <Redirect exact from="/" to="/recommend" />
+            </Switch>
 
             <Route path="/ranking" component={Ranking} />
             <Route path="/search" component={Search} />
-          </Switch>
+          </div>
         </div>
       </Router>
     );

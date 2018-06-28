@@ -99,10 +99,10 @@ class Swiper {
       this._prev = this._current;
       if (distance > this._options.threshold) {
         this._current = this._current === 0 ? 0 : --this._current;
-      }
-
-      if (distance < -this._options.threshold) {
+        e.preventDefault();
+      } else if (distance < -this._options.threshold) {
         this._current = this._current < (this.count - 1) ? ++this._current : this._current;
+        e.preventDefault();
       }
 
       this._show(this._current);

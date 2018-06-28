@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import { get } from '../common/js/axios';
+import { getRank } from '../api';
 import { ERR_OK } from '../api/config';
 
-class Ranking extends Component {
+class Rank extends Component {
   constructor (props) {
     super(props);
 
@@ -13,18 +13,7 @@ class Ranking extends Component {
   }
 
   componentDidMount () {
-    let url = '/api/ranking';
-    let params = {
-      uin: 0,
-      format: 'json',
-      inCharset: 'utf-8',
-      outCharset: 'utf-8',
-      notice: 0,
-      platform: 'h5',
-      needNewCode: 1
-    };
-
-    get(url, {params})
+    getRank()
       .then(res => {
         if (res.code === ERR_OK) {
           this.setState({
@@ -55,7 +44,10 @@ class Ranking extends Component {
             <div className="flex__item media__bd">
               <h2 className="media__title">{item.topTitle}</h2>
               {item.songList.map((song, index) => (
-                <p className="media__desc one-row">
+                <p
+                  key={index}
+                  className="media__desc one-row"
+                >
                   {index + 1}
                   <span className="media__mate">{song.songname}</span>
                   {'- ' + song.singername}
@@ -69,4 +61,4 @@ class Ranking extends Component {
   }
 }
 
-export default Ranking;
+export default Rank;

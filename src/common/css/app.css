@@ -405,7 +405,7 @@ a {
 .search-bar__input {
   width: 100%;
   line-height: 20px;
-  color: rgba(0, 0, 0, .3);
+  color: var(--color-light);
 }
 
 .search-bar__form .icon-search,
@@ -447,4 +447,35 @@ a {
 .search-bar__form .icon-clear::after {
   width: 2px;
   height: 10px;
+}
+
+.search-result {
+  padding: 16px;
+}
+
+.search-result__title {
+  margin-bottom: 8px;
+  font-size: var(--font-size-medium);
+  color: var(--color-text);
+}
+
+.search-result__tags {
+
+}
+
+.tag {
+  display: inline-block;
+  padding: 0 10px;
+  border: 1px solid rgba(0, 0, 0, .6);
+  border-radius: 100px;
+  margin: 0 16px 10px 0;
+  line-height: 30px;
+  font-size: var(--font-size-medium);
+  word-break: keep-all;
+  color: var(--color-dark);
+}
+
+.tag_hot {
+  border-color: #fc4524;
+  color: #fc4524;
 }

@@ -21,26 +21,4 @@ axios.interceptors.response.use(res => {
   return Promise.reject(err);
 });
 
-export function get (url, params) {
-  return new Promise((resolve, reject) => {
-    axios.get(url, params)
-      .then(res => {
-        return resolve(res.data);
-      })
-      .catch(err => {
-        return reject(err);
-      });
-  });
-}
-
-export function post (url, params) {
-  return new Promise((resolve, reject) => {
-    axios.post(url, params)
-      .then(res => {
-        return resolve(res.data);
-      })
-      .catch(err => {
-        return reject(err);
-      });
-  });
-}
+export default axios;

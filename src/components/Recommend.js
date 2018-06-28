@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Swiper from '../common/js/swiper';
 
-import { get } from '../common/js/axios';
+import { getRecommend } from '../api';
 import { ERR_OK } from '../api/config';
 
 class Recommend extends Component {
@@ -17,37 +17,18 @@ class Recommend extends Component {
   }
 
   componentDidMount () {
-    let url = 'http://192.168.31.38:8000/api/getRecommend';
+    getRecommend()
+      .then(res => {
+        if (res.code === ERR_OK) {
+          console.log(res.data);
 
-    let params = {
-      g_tk: 5381,
-      uin: 0,
-      format: 'json',
-      inCharset: 'utf-8',
-      outCharset: 'utf-8',
-      notice: 0,
-      platform: 'h5',
-      needNewCode: 1
-    };
-
-    get(url, {
-      params
-    }).then(res => {
-      if (res.code === ERR_OK) {
-        console.log(res.data);
-
-        this.setState({
-          radioList: [...res.data.radioList],
-          slider: [...res.data.slider],
-          songList: [...res.data.songList]
-        });
-      }
-    });
-  }
-
-  componentDidUpdate () {
-    // this.swiper = new Swiper();
-    // console.log(this.swiper);
+          this.setState({
+            radioList: [...res.data.radioList],
+            slider: [...res.data.slider],
+            songList: [...res.data.songList]
+          });
+        }
+      });
   }
 
   handleImageLoad = () => {
@@ -93,11 +74,12 @@ class Recommend extends Component {
           <h2 className="grids__title">电台</h2>
           <div className="grids">
             {this.state.radioList.map((item, index) => (
-              <div className="grid-wrapper">
+              <div
+                key={index}
+                className="grid-wrapper"
+              >
                 <div
-                  key={index}
-                  className="grid"
-                >
+                  className="grid">
                   <div className="grid__thumb">
                     <img src={item.picUrl} alt={item.Ftitle} />
                     <i className="icon icon-play" />
@@ -117,11 +99,11 @@ class Recommend extends Component {
           <h2 className="grids__title">热门歌单</h2>
           <div className="grids">
             {this.state.songList.map(item => (
-              <div className="grid-wrapper">
-                <div
-                  key={item.id}
-                  className="grid"
-                >
+              <div
+                key={item.id}
+                className="grid-wrapper"
+              >
+                <div className="grid">
                   <div className="grid__thumb">
                     <img src={item.picUrl} alt={item.songListDesc} />
                     <span className="listen-count">

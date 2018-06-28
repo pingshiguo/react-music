@@ -7,7 +7,7 @@ import {
   NavLink
 } from 'react-router-dom';
 import Recommend from './components/Recommend';
-import Ranking from './components/Ranking';
+import Rank from './components/Rank';
 import Search from './components/Search';
 
 import './common/css/normalize.css';
@@ -31,7 +31,7 @@ class App extends Component {
             </NavLink>
 
             <NavLink
-              to="/ranking"
+              to="/rank"
               className="nav__item"
               activeClassName="nav__item_active"
             >排行
@@ -51,7 +51,7 @@ class App extends Component {
               <Redirect exact from="/" to="/recommend" />
             </Switch>
 
-            <Route path="/ranking" component={Ranking} />
+            <Route path="/rank" component={Rank} />
             <Route path="/search" component={Search} />
           </div>
         </div>

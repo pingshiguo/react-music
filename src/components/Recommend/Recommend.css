@@ -1,0 +1,125 @@
+/**
+ * recommend page
+ */
+
+.swiper-wrapper {
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.swiper {
+  position: relative;
+  display: flex;
+  transition: all .3s ease-in-out;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.link {
+  display: block;
+  width: 100%;
+}
+
+.image {
+}
+
+.grids-wrapper {
+  margin: 0 8px 8px;
+}
+
+.grids__title {
+  margin-bottom: 8px;
+  font-size: var(--font-size-large);
+  color: var(--color-dark)
+}
+
+.grids {
+  font-size: 0;
+}
+
+.grid-wrapper {
+  display: inline-block;
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.grid-wrapper:nth-of-type(2n + 1) {
+  padding-right: 4px;
+}
+
+.grid-wrapper:nth-of-type(2n + 2) {
+  padding-left: 4px;
+}
+
+.grid {
+  position: relative;
+  padding-bottom: 6px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.grid__thumb {
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.grid__thumb::before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+
+.grid__thumb::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 42px;
+  z-index: 2;
+  background-image: url("../../common/img/shadow_rp.png");
+  background-size: 1px 42px;
+  background-repeat: repeat-x;
+}
+
+.grid__thumb img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.grid__thumb .icon-play {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  z-index: 10;
+  width: 24px;
+  height: 24px;
+}
+
+.grid__title,
+.grid__desc {
+  padding: 0 8px;
+  color: var(--color-dark);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.grid__title {
+  font-size: var(--font-size-medium);
+}
+
+.grid__title_two-row {
+  height: 36px;
+}
+
+.grid__desc {
+  font-size: var(--font-size-small);
+}

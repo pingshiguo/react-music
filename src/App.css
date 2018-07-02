@@ -1,0 +1,43 @@
+/**
+ * app page
+ */
+
+.page {
+}
+
+.page__hd {
+  background: var(--color-theme);
+}
+
+.page__bd {
+}
+
+.page__title {
+  line-height: 44px;
+  text-align: center;
+  font-size: var(--font-size-x-large);
+  color: #fff;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding-bottom: 4px;
+  text-align: center;
+  background: var(--color-theme);
+}
+
+.nav__item {
+  display: inline-block;
+  min-width: 80px;
+  border-bottom: 2px solid transparent;
+  line-height: 42px;
+  font-size: var(--font-size-large);
+  color: rgba(255, 255, 255, .6);
+}
+
+.nav__item_active {
+  border-color: #fff;
+  color: #fff;
+}

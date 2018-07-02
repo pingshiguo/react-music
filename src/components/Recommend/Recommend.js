@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import Swiper from '../common/js/swiper';
+import Swiper from '../../common/js/swiper';
 
-import { getRecommend } from '../api';
-import { ERR_OK } from '../api/config';
+import './Recommend.css';
+
+import { getRecommend } from '../../api/index';
+import { ERR_OK } from '../../api/config';
 
 class Recommend extends Component {
   constructor (props) {

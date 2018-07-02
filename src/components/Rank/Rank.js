@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
-import { getRank } from '../api';
-import { ERR_OK } from '../api/config';
+import './Rank.css';
+
+import { getRank } from '../../api/index';
+import { ERR_OK } from '../../api/config';
 
 class Rank extends Component {
   constructor (props) {

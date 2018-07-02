@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
-import { getKeyword } from '../api';
-import { ERR_OK } from '../api/config';
+import './Search.css';
+
+import { getKeyword } from '../../api/index';
+import { ERR_OK } from '../../api/config';
 
 class Search extends Component {
   constructor (props) {

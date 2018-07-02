@@ -1,5 +1,138 @@
+/**
+ * config
+ */
+
+:root {
+  --color-theme: #5cba8e;
+  --color-text: #666;
+  --color-light: #999;
+  --color-dark: #333;
+  --color-bg: #f4f4f4;
+  --font-size-x-small: 10px;
+  --font-size-small: 12px;
+  --font-size-medium: 14px;
+  --font-size-large: 16px;
+  --font-size-x-large: 18px;
+  --font-size-xx-large: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
+  height: 100%;
+  line-height: 1.5;
+  font-family: PingFang SC, STHeitiSC-Light, Helvetica-Light, arial, sans-serif;
+  font-size: 16px;
+  background: var(--color-bg);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
+  font-weight: 400;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  border: 0;
+  vertical-align: top;
+}
+
+input {
   padding: 0;
-  font-family: sans-serif;
+  border: 0;
+  outline: 0;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/**
+ * utils
+ */
+
+.flex {
+  display: flex;
+}
+
+.flex_middle {
+  align-items: center;
+}
+
+.flex_center {
+  justify-content: center;
+}
+
+.flex_wrap {
+  flex-wrap: wrap;
+}
+
+.flex__item {
+  flex: 1;
+}
+
+.one-row {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  font-style: normal;
+  background-repeat: no-repeat;
+}
+
+.icon-search {
+  background-image: url("./common/img/search.png");
+  background-size: cover;
+}
+
+.icon-play {
+  background-image: url("./common/img/list_sprite.png");
+  background-position: 0 0;
+  background-size: 24px 60px;
+}
+
+.icon-listen {
+  background-image: url("./common/img/list_sprite.png");
+  background-position: 0 -50px;
+  background-size: 24px 60px;
+}
+
+.listen-count {
+  position: absolute;
+  bottom: 8px;
+  left: 6px;
+  z-index: 10;
+  line-height: 12px;
+  font-size: var(--font-size-small);
+  color: #fff;
+}
+
+.listen-count .icon-listen {
+  width: 10px;
+  height: 10px;
+  margin-right: 4px;
+  vertical-align: top;
 }

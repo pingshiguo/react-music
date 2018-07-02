@@ -6,12 +6,12 @@ import {
   Switch,
   NavLink
 } from 'react-router-dom';
-import Recommend from './components/Recommend';
-import Rank from './components/Rank';
-import Search from './components/Search';
+import Recommend from './components/Recommend/Recommend';
+import Rank from './components/Rank/Rank';
+import Search from './components/Search/Search';
+import RankDetail from './components/RankDetail/RankDetail';
 
-import './common/css/normalize.css';
-import './common/css/app.css';
+import './App.css';
 
 class App extends Component {
   render () {
@@ -51,7 +51,9 @@ class App extends Component {
               <Redirect exact from="/" to="/recommend" />
             </Switch>
 
-            <Route path="/rank" component={Rank} />
+            <Route exact path="/rank" component={Rank} />
+            <Route path="/rank/:rankId" component={RankDetail} />
+
             <Route path="/search" component={Search} />
           </div>
         </div>

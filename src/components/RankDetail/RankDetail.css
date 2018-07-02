@@ -1,0 +1,35 @@
+/**
+ * rank detail page
+ */
+
+.rank-detail {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  background: #fff;
+  overflow-y: auto;
+}
+
+.rank-detail__hd {
+  height: 226px;
+  color: #fff;
+}
+
+.rank-detail__bd {
+
+}
+
+.detail-media {
+
+}
+
+.detail-media__hd {
+
+}
+
+.detail-media__bd {
+
+}

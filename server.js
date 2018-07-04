@@ -15,6 +15,12 @@ app.all('*', function (req, res, next) {
   }
 });
 
+axios.defaults.headers = {
+  host: 'm.y.qq.com',
+  origin: 'https://m.y.qq.com',
+  referrer: 'https://m.y.qq.com/'
+};
+
 const apiRoutes = express.Router();
 
 apiRoutes.get('/recommend', (req, res) => {
@@ -27,9 +33,10 @@ apiRoutes.get('/recommend', (req, res) => {
       referrer: 'https://m.y.qq.com/'
     },
     params: req.query
-  }).then(response => {
-    res.json(response.data);
-  });
+  })
+    .then(response => {
+      res.json(response.data);
+    });
 });
 
 apiRoutes.get('/rank', (req, res) => {
@@ -42,9 +49,21 @@ apiRoutes.get('/rank', (req, res) => {
       referrer: 'https://m.y.qq.com/'
     },
     params: req.query
-  }).then(response => {
-    res.json(response.data);
-  });
+  })
+    .then(response => {
+      res.json(response.data);
+    });
+});
+
+apiRoutes.get('/rank_detail', (req, res) => {
+  let url = 'https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg';
+
+  axios.get(url, {
+    params: req.query
+  })
+    .then(response => {
+      res.json(response.data);
+    });
 });
 
 apiRoutes.get('/keyword', (req, res) => {
@@ -57,9 +76,10 @@ apiRoutes.get('/keyword', (req, res) => {
       referrer: 'https://m.y.qq.com/'
     },
     params: req.query
-  }).then(response => {
-    res.json(response.data);
-  });
+  })
+    .then(response => {
+      res.json(response.data);
+    });
 });
 
 app.use('/api', apiRoutes);

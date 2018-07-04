@@ -52,7 +52,7 @@ class App extends Component {
             </Switch>
 
             <Route exact path="/rank" component={Rank} />
-            <Route path="/rank/:rankId" component={RankDetail} />
+            <Route exact path="/rank/:rankId" component={RankDetail} />
 
             <Route path="/search" component={Search} />
           </div>

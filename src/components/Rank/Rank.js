@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import './Rank.css';
 
@@ -26,14 +27,17 @@ class Rank extends Component {
   }
 
   render () {
+    const {match} = this.props;
+
     return (
-      <div className="media-list-wrapper">
+      <div className="rank-wrapper">
         {this.state.topList.map(item => (
-          <div
+          <Link
             key={item.id}
-            className="flex flex_middle media"
+            to={`${match.url}/${item.id}`}
+            className="flex flex_middle rank-media"
           >
-            <div className="media__hd">
+            <div className="rank-media__hd">
               <img
                 src={item.picUrl}
                 alt={item.topTitle}
@@ -43,20 +47,20 @@ class Rank extends Component {
                 {(item.listenCount / 1000).toFixed(1) + '万'}
               </span>
             </div>
-            <div className="flex__item media__bd">
-              <h2 className="media__title">{item.topTitle}</h2>
+            <div className="flex__item rank-media__bd">
+              <h2 className="rank-media__title">{item.topTitle}</h2>
               {item.songList.map((song, index) => (
                 <p
                   key={index}
-                  className="media__desc one-row"
+                  className="rank-media__desc one-row"
                 >
                   {index + 1}
-                  <span className="media__mate">{song.songname}</span>
+                  <span className="rank-media__mate">{song.songname}</span>
                   {'- ' + song.singername}
                 </p>
               ))}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     );

@@ -8,6 +8,7 @@
   --color-light: #999;
   --color-dark: #333;
   --color-bg: #f4f4f4;
+  --color-hot: #fc4524;
   --font-size-x-small: 10px;
   --font-size-small: 12px;
   --font-size-medium: 14px;
@@ -26,6 +27,7 @@ body {
   line-height: 1.5;
   font-family: PingFang SC, STHeitiSC-Light, Helvetica-Light, arial, sans-serif;
   font-size: 16px;
+  font-weight: 300;
   background: var(--color-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
@@ -39,11 +41,17 @@ h4,
 h5,
 h6 {
   margin: 0;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 p {
   margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
 
 img {
@@ -78,7 +86,15 @@ a {
   align-items: center;
 }
 
+.flex--middle {
+  align-items: center;
+}
+
 .flex_center {
+  justify-content: center;
+}
+
+.flex--center {
   justify-content: center;
 }
 
@@ -86,8 +102,29 @@ a {
   flex-wrap: wrap;
 }
 
+.flex--wrap {
+  flex-wrap: wrap;
+}
+
 .flex__item {
   flex: 1;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 40px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: var(--font-size-large);
+  font-weight: 300;
+}
+
+.btn__primary {
+  color: #fff;
+  background: var(--color-theme);
 }
 
 .one-row {
@@ -135,4 +172,25 @@ a {
   height: 10px;
   margin-right: 4px;
   vertical-align: top;
+}
+
+.box-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1) translateZ(0);
+  filter: blur(36px);
+}
+
+.box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  background: rgba(0, 0, 0, .5);
 }

@@ -39,6 +39,18 @@ export function getRank () {
   return get(url, PARAMS);
 }
 
+export function getRankDetail (rankId) {
+  let url = '/rank_detail';
+  let params = Object.assign(PARAMS, {
+    tpl: 3,
+    page: 'detail',
+    type: 'top',
+    topid: rankId
+  });
+
+  return get(url, params);
+}
+
 export function getKeyword () {
   let url = '/keyword';
 
